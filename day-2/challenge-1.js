@@ -3,13 +3,12 @@ const fs = require('fs');
 let s = 0;
 
 const check = (data, condition, color) => {
-    let sum = 0;
-    for (let i of data) {        
-        if (i[color]) {
-            sum += i[color];
+    for (let i of data) {
+        if (i[color] > condition) {
+            return false;
         }
     }
-    return sum < condition;
+    return true;
 }
 
 const checkColors = (data, conditions) => {
